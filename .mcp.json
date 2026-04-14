@@ -1,23 +1,109 @@
 {
   "name": "calendar-ai-mcp",
-  "description": "MEOK AI Labs \u2014 Calendar tools for AI agents and LLMs",
-  "vendor": "MEOK AI Labs",
-  "homepage": "https://meok.ai",
-  "repository": "https://github.com/CSOAI-ORG/calendar-ai-mcp",
-  "runtime": "python",
-  "entrypoint": "server.py",
+  "description": "MCP server for AI-powered calendar and schedule management.",
+  "version": "1.0.0",
   "tools": [
-    "create_event",
-    "find_free_slot",
-    "calculate_duration",
-    "timezone_convert"
-  ],
-  "categories": [
-    "Productivity",
-    "Calendar"
-  ],
-  "pricing": {
-    "free": "50 calls/day",
-    "pro": "$9/mo"
-  }
+    {
+      "name": "create_event",
+      "description": "Create a calendar event. start/end in ISO 8601 format (YYYY-MM-DDTHH:MM:SS).",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "start": {
+            "type": "string"
+          },
+          "end": {
+            "type": "string"
+          },
+          "timezone": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "attendees": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "title",
+          "start",
+          "end"
+        ]
+      }
+    },
+    {
+      "name": "find_free_slot",
+      "description": "Find free time slots. busy_slots: JSON array of {start, end} objects. date: YYYY-MM-DD.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "busy_slots": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "duration_minutes": {
+            "type": "integer"
+          },
+          "work_start": {
+            "type": "string"
+          },
+          "work_end": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "busy_slots",
+          "date"
+        ]
+      }
+    },
+    {
+      "name": "calculate_duration",
+      "description": "Calculate duration between two ISO 8601 datetime strings.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "start": {
+            "type": "string"
+          },
+          "end": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "start",
+          "end"
+        ]
+      }
+    },
+    {
+      "name": "timezone_convert",
+      "description": "Convert time between UTC offsets. Offsets in hours (e.g., -5 for EST, +1 for CET).",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "datetime_str": {
+            "type": "string"
+          },
+          "from_offset": {
+            "type": "number"
+          },
+          "to_offset": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "datetime_str",
+          "from_offset",
+          "to_offset"
+        ]
+      }
+    }
+  ]
 }

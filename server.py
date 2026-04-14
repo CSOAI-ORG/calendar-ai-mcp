@@ -1,4 +1,9 @@
 """Calendar AI MCP Server — Schedule management tools."""
+
+import sys, os
+sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
+from auth_middleware import check_access
+
 import json
 import time
 from datetime import datetime, timedelta
@@ -20,8 +25,12 @@ def _rate_check(tool: str) -> bool:
     return True
 
 @mcp.tool()
-def create_event(title: str, start: str, end: str, timezone: str = "UTC", description: str = "", attendees: str = "") -> dict[str, Any]:
+def create_event(title: str, start: str, end: str, timezone: str = "UTC", description: str = "", attendees: str = "", api_key: str = "") -> dict[str, Any]:
     """Create a calendar event. start/end in ISO 8601 format (YYYY-MM-DDTHH:MM:SS)."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if not _rate_check("create_event"):
         return {"error": "Rate limit exceeded (50/day)"}
     try:
@@ -43,8 +52,12 @@ def create_event(title: str, start: str, end: str, timezone: str = "UTC", descri
     }
 
 @mcp.tool()
-def find_free_slot(busy_slots: str, date: str, duration_minutes: int = 60, work_start: str = "09:00", work_end: str = "17:00") -> dict[str, Any]:
+def find_free_slot(busy_slots: str, date: str, duration_minutes: int = 60, work_start: str = "09:00", work_end: str = "17:00", api_key: str = "") -> dict[str, Any]:
     """Find free time slots. busy_slots: JSON array of {start, end} objects. date: YYYY-MM-DD."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if not _rate_check("find_free_slot"):
         return {"error": "Rate limit exceeded (50/day)"}
     try:
@@ -68,8 +81,12 @@ def find_free_slot(busy_slots: str, date: str, duration_minutes: int = 60, work_
     return {"date": date, "free_slots": free, "total_free_minutes": sum(s["minutes"] for s in free)}
 
 @mcp.tool()
-def calculate_duration(start: str, end: str) -> dict[str, Any]:
+def calculate_duration(start: str, end: str, api_key: str = "") -> dict[str, Any]:
     """Calculate duration between two ISO 8601 datetime strings."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if not _rate_check("calculate_duration"):
         return {"error": "Rate limit exceeded (50/day)"}
     try:
@@ -87,8 +104,12 @@ def calculate_duration(start: str, end: str) -> dict[str, Any]:
     }
 
 @mcp.tool()
-def timezone_convert(datetime_str: str, from_offset: float, to_offset: float) -> dict[str, Any]:
+def timezone_convert(datetime_str: str, from_offset: float, to_offset: float, api_key: str = "") -> dict[str, Any]:
     """Convert time between UTC offsets. Offsets in hours (e.g., -5 for EST, +1 for CET)."""
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     if not _rate_check("timezone_convert"):
         return {"error": "Rate limit exceeded (50/day)"}
     try:

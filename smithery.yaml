@@ -1,10 +1,66 @@
 name: calendar-ai-mcp
-description: "MEOK AI Labs — Calendar tools for AI agents and LLMs"
-vendor: MEOK AI Labs
-homepage: https://meok.ai
-repository: https://github.com/CSOAI-ORG/calendar-ai-mcp
-license: MIT
-categories: [Productivity, Calendar]
-tags: [calendar, scheduling, event-management, time-management, appointments]
-runtime: python
-entrypoint: server.py
+description: MCP server for AI-powered calendar and schedule management.
+version: 1.0.0
+tools:
+- name: create_event
+  description: Create a calendar event. start/end in ISO 8601 format (YYYY-MM-DDTHH:MM:SS).
+  parameters:
+  - name: title
+    type: string
+    required: true
+  - name: start
+    type: string
+    required: true
+  - name: end
+    type: string
+    required: true
+  - name: timezone
+    type: string
+    required: false
+  - name: description
+    type: string
+    required: false
+  - name: attendees
+    type: string
+    required: false
+- name: find_free_slot
+  description: 'Find free time slots. busy_slots: JSON array of {start, end} objects.
+    date: YYYY-MM-DD.'
+  parameters:
+  - name: busy_slots
+    type: string
+    required: true
+  - name: date
+    type: string
+    required: true
+  - name: duration_minutes
+    type: integer
+    required: false
+  - name: work_start
+    type: string
+    required: false
+  - name: work_end
+    type: string
+    required: false
+- name: calculate_duration
+  description: Calculate duration between two ISO 8601 datetime strings.
+  parameters:
+  - name: start
+    type: string
+    required: true
+  - name: end
+    type: string
+    required: true
+- name: timezone_convert
+  description: Convert time between UTC offsets. Offsets in hours (e.g., -5 for EST,
+    +1 for CET).
+  parameters:
+  - name: datetime_str
+    type: string
+    required: true
+  - name: from_offset
+    type: number
+    required: true
+  - name: to_offset
+    type: number
+    required: true
