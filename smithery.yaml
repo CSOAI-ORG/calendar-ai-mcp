@@ -1,5 +1,6 @@
 name: calendar-ai-mcp
-description: MEOK AI Labs MCP Server
+description: 'Calendar Ai MCP server. Tools: create event, find free slot, calculate
+  duration. Built by MEOK AI Labs.'
 version: 1.0.0
 tools:
 - name: create_event

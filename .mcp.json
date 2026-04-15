@@ -1,6 +1,6 @@
 {
   "name": "calendar-ai-mcp",
-  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 MEOK AI Labs MCP Server",
+  "description": "Calendar Ai MCP server. Tools: create event, find free slot, calculate duration. Built by MEOK AI Labs.",
   "version": "1.0.0",
   "tools": [
     {

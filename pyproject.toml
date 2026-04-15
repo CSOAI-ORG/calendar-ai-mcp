@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 [project]
 name = "calendar-ai-mcp"
 version = "1.0.0"
-description = "MEOK AI Labs — calendar-ai-mcp"
+description = "Calendar Ai MCP server. Tools: create event, find free slot, calculate duration. Built by MEOK AI Labs."
 license = {file = "LICENSE"}
 requires-python = ">=3.10"
 authors = [{name = "MEOK AI Labs", email = "nicholas@meok.ai"}]
