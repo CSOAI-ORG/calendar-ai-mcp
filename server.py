@@ -10,6 +10,17 @@ from datetime import datetime, timedelta
 from typing import Any
 from mcp.server.fastmcp import FastMCP
 
+from collections import defaultdict
+
+FREE_DAILY_LIMIT = 15
+_usage = defaultdict(list)
+def _rl(c="anon"):
+    now = datetime.now(timezone.utc)
+    _usage[c] = [t for t in _usage[c] if (now-t).total_seconds() < 86400]
+    if len(_usage[c]) >= FREE_DAILY_LIMIT: return json.dumps({"error": f"Limit {FREE_DAILY_LIMIT}/day"})
+    _usage[c].append(now); return None
+
+
 mcp = FastMCP("calendar-ai", instructions="MEOK AI Labs MCP Server")
 _calls: dict[str, list[float]] = {}
 DAILY_LIMIT = 50
@@ -30,6 +41,7 @@ def create_event(title: str, start: str, end: str, timezone: str = "UTC", descri
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+    if err := _rl(): return err
 
     if not _rate_check("create_event"):
         return {"error": "Rate limit exceeded (50/day)"}
@@ -57,6 +69,7 @@ def find_free_slot(busy_slots: str, date: str, duration_minutes: int = 60, work_
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+    if err := _rl(): return err
 
     if not _rate_check("find_free_slot"):
         return {"error": "Rate limit exceeded (50/day)"}
@@ -86,6 +99,7 @@ def calculate_duration(start: str, end: str, api_key: str = "") -> dict[str, Any
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+    if err := _rl(): return err
 
     if not _rate_check("calculate_duration"):
         return {"error": "Rate limit exceeded (50/day)"}
@@ -109,6 +123,7 @@ def timezone_convert(datetime_str: str, from_offset: float, to_offset: float, ap
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+    if err := _rl(): return err
 
     if not _rate_check("timezone_convert"):
         return {"error": "Rate limit exceeded (50/day)"}
