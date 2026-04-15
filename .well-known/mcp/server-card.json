@@ -1,0 +1,53 @@
+{
+  "name": "calendar-ai",
+  "description": "Calendar Ai tools powered by MEOK AI Labs.",
+  "version": "1.0.0",
+  "protocol_version": "2025-11-25",
+  "publisher": {
+    "name": "MEOK AI Labs",
+    "url": "https://meok.ai",
+    "email": "nicholas@meok.ai"
+  },
+  "repository": "https://github.com/CSOAI-ORG/calendar-ai-mcp",
+  "license": "MIT",
+  "transport": [
+    "stdio",
+    "streamable-http"
+  ],
+  "authentication": {
+    "type": "api-key",
+    "free_tier": true,
+    "free_limit": "15 calls/day"
+  },
+  "tools": [
+    {
+      "name": "create_event",
+      "description": "Create a calendar event. start/end in ISO 8601 format (YYYY-MM-DDTHH:MM:SS)."
+    },
+    {
+      "name": "find_free_slot",
+      "description": "Find free time slots. busy_slots: JSON array of {start, end} objects. date: YYYY-MM-DD."
+    },
+    {
+      "name": "calculate_duration",
+      "description": "Calculate duration between two ISO 8601 datetime strings."
+    },
+    {
+      "name": "timezone_convert",
+      "description": "Convert time between UTC offsets. Offsets in hours (e.g., -5 for EST, +1 for CET)."
+    }
+  ],
+  "categories": [
+    "AI & Machine Learning",
+    "Productivity"
+  ],
+  "pricing": {
+    "free": {
+      "calls_per_day": 15
+    },
+    "pro": {
+      "price": "$29/month",
+      "url": "https://meok.ai/pricing"
+    }
+  }
+}
