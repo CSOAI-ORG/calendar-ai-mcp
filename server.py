@@ -10,7 +10,7 @@ from datetime import datetime, timedelta
 from typing import Any
 from mcp.server.fastmcp import FastMCP
 
-mcp = FastMCP("calendar-ai-mcp")
+mcp = FastMCP("calendar-ai", instructions="MEOK AI Labs MCP Server")
 _calls: dict[str, list[float]] = {}
 DAILY_LIMIT = 50
 

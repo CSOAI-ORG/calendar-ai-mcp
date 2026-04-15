@@ -1,5 +1,5 @@
 name: calendar-ai-mcp
-description: MCP server for AI-powered calendar and schedule management.
+description: MEOK AI Labs MCP Server
 version: 1.0.0
 tools:
 - name: create_event
