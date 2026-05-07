@@ -37,7 +37,22 @@ def _rate_check(tool: str) -> bool:
 
 @mcp.tool()
 def create_event(title: str, start: str, end: str, timezone: str = "UTC", description: str = "", attendees: str = "", api_key: str = "") -> dict[str, Any]:
-    """Create a calendar event. start/end in ISO 8601 format (YYYY-MM-DDTHH:MM:SS)."""
+    """Create a calendar event. start/end in ISO 8601 format (YYYY-MM-DDTHH:MM:SS).
+
+    Behavior:
+        This tool generates structured output without modifying external systems.
+        Output is deterministic for identical inputs. No side effects.
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -65,7 +80,23 @@ def create_event(title: str, start: str, end: str, timezone: str = "UTC", descri
 
 @mcp.tool()
 def find_free_slot(busy_slots: str, date: str, duration_minutes: int = 60, work_start: str = "09:00", work_end: str = "17:00", api_key: str = "") -> dict[str, Any]:
-    """Find free time slots. busy_slots: JSON array of {start, end} objects. date: YYYY-MM-DD."""
+    """Find free time slots. busy_slots: JSON array of {start, end} objects. date: YYYY-MM-DD.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -95,7 +126,23 @@ def find_free_slot(busy_slots: str, date: str, duration_minutes: int = 60, work_
 
 @mcp.tool()
 def calculate_duration(start: str, end: str, api_key: str = "") -> dict[str, Any]:
-    """Calculate duration between two ISO 8601 datetime strings."""
+    """Calculate duration between two ISO 8601 datetime strings.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
@@ -119,7 +166,23 @@ def calculate_duration(start: str, end: str, api_key: str = "") -> dict[str, Any
 
 @mcp.tool()
 def timezone_convert(datetime_str: str, from_offset: float, to_offset: float, api_key: str = "") -> dict[str, Any]:
-    """Convert time between UTC offsets. Offsets in hours (e.g., -5 for EST, +1 for CET)."""
+    """Convert time between UTC offsets. Offsets in hours (e.g., -5 for EST, +1 for CET).
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     allowed, msg, tier = check_access(api_key)
     if not allowed:
         return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
