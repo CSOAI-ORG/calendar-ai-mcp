@@ -1,3 +1,5 @@
+[![calendar-ai-mcp MCP server](https://glama.ai/mcp/servers/CSOAI-ORG/calendar-ai-mcp/badges/card.svg)](https://glama.ai/mcp/servers/CSOAI-ORG/calendar-ai-mcp)
+
 <div align="center">
 
 [![GitHub stars](https://img.shields.io/github/stars/CSOAI-ORG/calendar-ai-mcp)](https://github.com/CSOAI-ORG/calendar-ai-mcp/stargazers)
