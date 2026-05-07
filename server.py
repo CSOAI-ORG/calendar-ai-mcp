@@ -52,6 +52,16 @@ def create_event(title: str, start: str, end: str, timezone: str = "UTC", descri
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        title (str): The title to analyze or process.
+        start (str): The start to analyze or process.
+        end (str): The end to analyze or process.
+        timezone (str): The timezone to analyze or process.
+        description (str): The description to analyze or process.
+        attendees (str): The attendees to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -110,6 +120,15 @@ def find_free_slot(busy_slots: str, date: str, duration_minutes: int = 60, work_
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        busy_slots (str): The busy slots to analyze or process.
+        date (str): The date to analyze or process.
+        duration_minutes (int): The duration minutes to analyze or process.
+        work_start (str): The work start to analyze or process.
+        work_end (str): The work end to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -170,6 +189,12 @@ def calculate_duration(start: str, end: str, api_key: str = "") -> dict[str, Any
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        start (str): The start to analyze or process.
+        end (str): The end to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
@@ -224,6 +249,13 @@ def timezone_convert(datetime_str: str, from_offset: float, to_offset: float, ap
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+
+    Args:
+        datetime_str (str): The datetime str to analyze or process.
+        from_offset (float): The from offset to analyze or process.
+        to_offset (float): The to offset to analyze or process.
+        api_key (str): The api key to analyze or process.
+
     Behavioral Transparency:
         - Side Effects: This tool is read-only and produces no side effects. It does not modify
           any external state, databases, or files. All output is computed in-memory and returned
