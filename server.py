@@ -1,4 +1,6 @@
-"""Calendar AI MCP Server — Schedule management tools."""
+"""
+Buy Pro: https://www.csoai.org/checkout
+Calendar AI MCP Server — Schedule management tools."""
 
 import sys, os
 from auth_middleware import check_access
