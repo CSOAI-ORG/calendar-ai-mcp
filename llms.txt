@@ -1,0 +1,31 @@
+# Calendar Ai MCP
+
+> Calendar utilities MCP — scheduling, availability checking, timezone handling, ICS export
+
+`calendar-ai-mcp` is a Model Context Protocol (MCP) server by MEOK AI Labs.
+
+## Install
+
+```bash
+pip install calendar-ai-mcp
+```
+
+Or run without installing:
+
+```bash
+uvx calendar-ai-mcp
+```
+
+## Tools
+
+- `create_event` — Create a calendar event. start/end in ISO 8601 format (YYYY-MM-DDTHH:MM:SS).
+- `find_free_slot` — Find free time slots. busy_slots: JSON array of {start, end} objects. date: YYYY-MM-DD.
+- `calculate_duration` — Calculate duration between two ISO 8601 datetime strings.
+- `timezone_convert` — Convert time between UTC offsets. Offsets in hours (e.g., -5 for EST, +1 for CET).
+
+## Links
+
+- Source: https://github.com/CSOAI-ORG/calendar-ai-mcp
+- PyPI: https://pypi.org/project/calendar-ai-mcp/
+- MEOK AI Labs: https://meok.ai
+- Council of AI: https://councilof.ai
