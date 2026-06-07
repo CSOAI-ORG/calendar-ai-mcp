@@ -1,0 +1,59 @@
+{
+  "name": "calendar-ai-mcp",
+  "description": "Calendar Ai MCP Server by MEOK AI Labs",
+  "url": "https://proofof.ai/scorecard/calendar-ai-mcp.html",
+  "version": "1.0.7",
+  "protocolVersion": "0.2.0",
+  "provider": {
+    "organization": "MEOK AI Labs",
+    "url": "https://meok.ai"
+  },
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false
+  },
+  "defaultInputModes": [
+    "text"
+  ],
+  "defaultOutputModes": [
+    "text"
+  ],
+  "skills": [
+    {
+      "id": "create_event",
+      "name": "Create Event",
+      "description": "create_event via calendar-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "find_free_slot",
+      "name": "Find Free Slot",
+      "description": "find_free_slot via calendar-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "calculate_duration",
+      "name": "Calculate Duration",
+      "description": "calculate_duration via calendar-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "timezone_convert",
+      "name": "Timezone Convert",
+      "description": "timezone_convert via calendar-ai-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "acpVersion": "0.1",
+  "agent": {
+    "name": "calendar-ai-mcp",
+    "description": "Calendar Ai MCP Server by MEOK AI Labs",
+    "version": "1.0.7",
+    "provider": "MEOK AI Labs",
+    "interfaces": [
+      {
+        "type": "mcp",
+        "transport": "stdio",
+        "package": "calendar-ai-mcp"
+      }
+    ],
+    "capabilities": [
+      "create_event",
+      "find_free_slot",
+      "calculate_duration",
+      "timezone_convert"
+    ]
+  }
+}
