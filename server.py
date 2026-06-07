@@ -1,5 +1,4 @@
 """
-Buy Pro: https://www.csoai.org/checkout
 Calendar AI MCP Server — Schedule management tools."""
 
 import sys, os

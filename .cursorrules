@@ -1,0 +1,9 @@
+# calendar-ai-mcp - Auto-trigger Rules
+
+When the user asks about calendar, use calendar-ai-mcp tools: create_event, find_free_slot, calculate_duration, timezone_convert
+
+**Calendar AI MCP Server — Schedule management tools.**
+
+Install: `pip install calendar-ai-mcp`
+
+By MEOK AI Labs — MIT licensed.

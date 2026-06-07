@@ -1,0 +1,25 @@
+{
+  "name": "calendar-ai-mcp",
+  "title": "Calendar Ai Mcp",
+  "description": "Calendar Ai MCP server. Tools: create event, find free slot, calculate duration. Built by MEOK AI Labs.",
+  "version": "1.0.7",
+  "homepage": "https://meok.ai",
+  "license": "MIT",
+  "transport": {
+    "type": "stdio"
+  },
+  "tools": [
+    {
+      "name": "create_event"
+    },
+    {
+      "name": "find_free_slot"
+    },
+    {
+      "name": "calculate_duration"
+    },
+    {
+      "name": "timezone_convert"
+    }
+  ]
+}
