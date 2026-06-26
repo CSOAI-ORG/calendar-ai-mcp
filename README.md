@@ -98,3 +98,28 @@ buyers can deploy without vendor-lock-in objections.
 
 <!-- BUY-LADDER:END -->
 
+
+
+## Configuration
+
+Add to your `claude_desktop_config.json` (Claude Desktop) or your MCP client config:
+
+```json
+{
+  "mcpServers": {
+    "calendar-ai-mcp": {
+      "command": "uvx",
+      "args": ["calendar-ai-mcp"]
+    }
+  }
+}
+```
+
+Or: `pip install calendar-ai-mcp` then run the `calendar-ai-mcp` command (stdio transport).
+
+## Examples
+
+Once configured, ask your assistant, for example:
+- "Use `create_event` to …"
+- "Use `find_free_slot` to …"
+- "Use `calculate_duration` to …"
